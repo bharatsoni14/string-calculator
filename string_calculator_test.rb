@@ -21,4 +21,10 @@ class StringCalculatorTest < Minitest::Test
     calculator = StringCalculator.new
     assert_equal 3, calculator.add("1,2")
   end
+
+  # Test Case - Multiple numbers case
+  def test_multiple_numbers
+    calculator = StringCalculator.new
+    assert_equal 6, calculator.add("1,2,3")
+  end
 end

@@ -1,9 +1,9 @@
 class StringCalculator
 
   # This method takes a string of numbers and returns the sum of those numbers
-  def add(numbers)
-    return 0 if numbers.empty?
+  def add(string_numbers)
+    return 0 if string_numbers.empty?
 
-    numbers.split(',').map(&:to_i).sum
+    string_numbers.split(',').map(&:to_i).sum
   end
 end
