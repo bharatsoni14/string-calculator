@@ -4,6 +4,20 @@ class StringCalculator
   def add(string_numbers)
     return 0 if string_numbers.empty?
 
-    string_numbers.split(/,|\n/).map(&:to_i).sum
+    # Check if the string has a custom delimiter
+    if string_numbers.start_with?("//")
+      delimiter, string_numbers = string_numbers.split("\n")
+      delimiter = delimiter[2..-1]
+    else
+      delimiter = ","
+    end
+
+    # Split the string by the delimiter and new line character
+    numbers = string_numbers.split(/#{delimiter}|\n/)
+
+    # Convert the string numbers to integers and sum them
+    numbers.map(&:to_i).reduce(:+)
+
   end
 end
+
