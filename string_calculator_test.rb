@@ -61,4 +61,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 3, calculator.called_count
   end
 
+  # Test Case - Ignore numbers greater than 1000 case
+  def test_ignore_numbers_greater_than_1000
+    calculator = StringCalculator.new
+    assert_equal 2, calculator.add("2,1001")
+  end
+
 end

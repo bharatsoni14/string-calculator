@@ -28,9 +28,12 @@ class StringCalculator
     negatives = numbers.select { |number| number.to_i < 0 }
     raise "negatives not allowed: #{negatives.join(', ')}" if negatives.any?
 
+    # Ignore the numbers greater than 1000
+    numbers = numbers.select { |number| number.to_i <= 1000 }
+
     # Convert the string numbers to integers and sum them
     numbers.map(&:to_i).reduce(:+)
-
   end
+
 end
 
