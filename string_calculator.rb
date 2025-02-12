@@ -15,6 +15,10 @@ class StringCalculator
     # Split the string by the delimiter and new line character
     numbers = string_numbers.split(/#{delimiter}|\n/)
 
+    # Check if the string has negative numbers
+    negatives = numbers.select { |number| number.to_i < 0 }
+    raise "negatives not allowed: #{negatives.join(', ')}" if negatives.any?
+
     # Convert the string numbers to integers and sum them
     numbers.map(&:to_i).reduce(:+)
 
