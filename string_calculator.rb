@@ -16,6 +16,7 @@ class StringCalculator
     numbers = string_numbers.split(/#{delimiter}|\n/)
 
     # Check if the string has negative numbers
+    # Share the negative numbers in exception message comma separated
     negatives = numbers.select { |number| number.to_i < 0 }
     raise "negatives not allowed: #{negatives.join(', ')}" if negatives.any?
 

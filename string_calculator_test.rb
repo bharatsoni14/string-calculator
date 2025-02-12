@@ -46,4 +46,10 @@ class StringCalculatorTest < Minitest::Test
     assert_raises(RuntimeError) { calculator.add("1,-2") }
   end
 
+  # Test Case - Multiple negative numbers case
+  def test_multiple_negative_numbers
+    calculator = StringCalculator.new
+    assert_raises(RuntimeError) { calculator.add("1,-2,-3") }
+  end
+
 end
