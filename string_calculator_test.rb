@@ -1,0 +1,24 @@
+# string_calculator_test.rb
+require 'minitest/autorun'
+require_relative 'string_calculator'
+
+class StringCalculatorTest < Minitest::Test
+
+  # Test Case - Empty string case
+  def test_empty_string
+    calculator = StringCalculator.new
+    assert_equal 0, calculator.add("")
+  end
+
+  # Test Case - Single number case
+  def test_single_number
+    calculator = StringCalculator.new
+    assert_equal 1, calculator.add("1")
+  end
+
+  # Test Case - Two numbers case
+  def test_two_numbers
+    calculator = StringCalculator.new
+    assert_equal 3, calculator.add("1,2")
+  end
+end
