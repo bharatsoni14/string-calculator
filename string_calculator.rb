@@ -1,7 +1,15 @@
 class StringCalculator
+  attr_reader :called_count
+
+  # Initialize the method
+  # called_count 0 (used to count the number of times the add method is called)
+  def initialize
+    @called_count = 0
+  end
 
   # This method takes a string of numbers and returns the sum of those numbers
   def add(string_numbers)
+    @called_count += 1
     return 0 if string_numbers.empty?
 
     # Check if the string has a custom delimiter

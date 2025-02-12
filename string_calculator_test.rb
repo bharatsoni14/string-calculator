@@ -52,4 +52,13 @@ class StringCalculatorTest < Minitest::Test
     assert_raises(RuntimeError) { calculator.add("1,-2,-3") }
   end
 
+  # Test Case - Count the number of times the add method is called case
+  def test_called_count
+    calculator = StringCalculator.new
+    calculator.add("1,2")
+    calculator.add("1,2")
+    calculator.add("1,2")
+    assert_equal 3, calculator.called_count
+  end
+
 end
