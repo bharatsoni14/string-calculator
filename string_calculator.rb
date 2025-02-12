@@ -17,14 +17,17 @@ class StringCalculator
       delimiter, string_numbers = string_numbers.split("\n", 2)
       delimiter = delimiter[2..-1]
       if delimiter.start_with?("[") && delimiter.end_with?("]")
-        delimiter = delimiter[1..-2]
+        delimiters = delimiter.scan(/\[([^\]]+)\]/).flatten
+      else
+        delimiters = [delimiter]
       end
     else
-      delimiter = ","
+      delimiters = [","]
     end
 
-    # Split the string by the delimiter and new line character
-    numbers = string_numbers.split(/#{Regexp.escape(delimiter)}|\n/)
+    # Create a regex pattern to split by multiple delimiters and new line character
+    delimiter_pattern = delimiters.map { |d| Regexp.escape(d) }.join("|")
+    numbers = string_numbers.split(/#{delimiter_pattern}|\n/)
 
     # Check if the string has negative numbers
     # Share the negative numbers in exception message comma separated
