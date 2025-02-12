@@ -27,4 +27,10 @@ class StringCalculatorTest < Minitest::Test
     calculator = StringCalculator.new
     assert_equal 6, calculator.add("1,2,3")
   end
+
+  # Test Case - New line character case
+  def test_new_line_character
+    calculator = StringCalculator.new
+    assert_equal 6, calculator.add("1\n2,3")
+  end
 end
